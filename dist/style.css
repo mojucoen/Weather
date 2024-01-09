@@ -1,0 +1,66 @@
+* {
+    font-family: 'PT Sans', sans-serif;
+}
+
+body {
+    background-color: skyblue;
+}
+
+#center {
+    align-self: center;
+}
+
+#search-food {
+    display: grid;
+    grid-gap: 1vmax;
+    grid-template-columns: repeat(2, 3fr);
+    margin-bottom: 1vmax;
+    width: 50px;
+}
+
+#weathersAdd {
+    display: grid;
+    grid-gap: 1vmax;
+    padding: auto;
+    grid-template-columns: repeat(1, 2fr);
+}
+
+#weathers {
+    display: grid;
+    grid-gap: 1vmax;
+    padding: auto;
+    grid-template-columns: repeat(1, 2fr);
+}
+
+ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    float: left;
+}
+
+.weather {
+    /* align-content: center; */
+    display: grid;
+    grid-gap: 1vmax;
+    grid-template-columns: repeat(3, 3fr);
+    padding: 1vmax;
+    border-radius: 4px;
+    box-shadow: 1px 1px 3px black;
+    float: left;
+}
+
+.button {
+    width: fit-content;
+    height: fit-content;
+    padding: 3px;
+}
+
+.text {
+    font-weight: bolder;
+    font-size: large;
+}
+
+.row {
+    display: grid;
+    grid-gap: 1vmax;
+}

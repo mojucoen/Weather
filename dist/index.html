@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Wonders Bucket List</title>
+    <meta name=" viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+
+<body>
+    <div id="search-food">
+
+        <input type="text" id="Key-City" placeholder="Enter kind of food" />
+        <i id="searchCity" class="fas fa-search" type="submit" onclick=findCityWeather()></i>
+
+    </div>
+
+    <div id="weathers"></div>
+    <div id="weathersAdd"></div>
+
+    <script id="weatherSearch-template" type="text/x-handlebars-template">
+
+        <div id="{{renderer.name}}" class="weather">
+            <div id="center">
+                <!-- <i class="fas fa-minus"></i> -->
+                <div class="fas fa-plus" onclick="createWeather({ 
+                    name: '{{renderer.name}}',
+                    temperature: '{{renderer.temperature}}',
+                    condition: '{{renderer.condition}}',
+                    conditionPic: '{{renderer.conditionPic}}'
+                })"></div>
+            </div>
+            <div class="row ">
+                <div id="center " class="text ">{{renderer.temperature}} </div>
+
+                <div id="center " class="text ">{{renderer.name}} </div>
+
+            </div>
+            <div class="row ">
+                <div class="row ">
+                    <img id="center " src='https://openweathermap.org/img/wn/{{renderer.conditionPic}}@2x.png' alt="icon of weather ">
+
+                    <p id="center " class="text ">{{renderer.condition}} </p>
+
+                </div>
+
+            </div>
+
+
+    </script>
+    <script id="weatherAdd-template" type="text/x-handlebars-template">
+        {{#each renderer}}
+        <div id="{{name}}" class="weather">
+            <div id="center">
+                <!-- <i class="fas fa-minus"></i> -->
+                <div class="fas fa-minus" onclick="deleteWeather({ 
+                    name: '{{name}}',
+                    temperature: '{{temperature}}',
+                    condition: '{{condition}}',
+                    conditionPic: '{{conditionPic}}'
+                })"></div>
+            </div>
+            <div class="row ">
+                <div id="center " class="text ">{{temperature}} </div>
+
+                <div id="center " class="text ">{{name}} </div>
+
+            </div>
+            <div class="row ">
+                <div class="row ">
+                    <img id="center " src='https://openweathermap.org/img/wn/{{conditionPic}}@2x.png' alt="icon of weather ">
+
+                    <p id="center " class="text ">{{condition}} </p>
+
+                </div>
+
+            </div>
+        </div>
+        {{/each}}
+
+    </script>
+
+    <script src="./jquery/dist/jquery.js "></script>
+    <script src="./handlebars/dist/handlebars.js "></script>
+
+    <script src="control.js"></script>
+    <script src="module.js "></script>
+    <script src="rendrer.js "></script>
+
+</body>
+
+</html>
