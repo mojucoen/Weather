@@ -32,6 +32,13 @@ body {
     grid-template-columns: repeat(1, 2fr);
 }
 
+#weathersMy {
+    display: grid;
+    grid-gap: 1vmax;
+    padding: auto;
+    grid-template-columns: repeat(1, 2fr);
+}
+
 ul {
     display: grid;
     grid-template-columns: 1fr 1fr;

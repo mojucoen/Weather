@@ -5,6 +5,25 @@ const Weather = require('../model/weatherDB')
 const { default: axios } = require('axios')
 let config = require('../config/config')
 let weatherData
+
+router.get('/coordinates/:latitude/:longitude', function(req, res) {
+    const lat = req.params['latitude']
+    const lon = req.params['longitude']
+    try {
+        axios.get(`${config.apiCity}lat=${lat}&lon=${lon}&units=${config.tempUnit}&appid=${config.apiKey}`).then(res1 => {
+            // console.log(res1.data)
+
+            let DATA = res1.data
+            weatherData = { name: DATA.name, temperature: DATA.main.temp, condition: DATA.weather[0].description, conditionPic: DATA.weather[0].icon }
+
+            res.send(weatherData)
+        })
+    } catch (error) {
+
+    }
+
+})
+
 router.get('/cityName/:city', function(req, res) {
     const city = req.params['city']
     if (city) {
@@ -62,23 +81,17 @@ router.post('/addWeather', function(req, res) {
 })
 
 router.delete('/delWeather', function(req, res) {
-    weatherAdd = req.body
-    console.log(weatherAdd)
-    if (weatherAdd) {
+    weatherDel = req.body
+    if (weatherDel) {
         try {
 
-            Weather.findOneAndDelete({ 'name': weatherAdd.name }).then(respCond => {
+            Weather.findOneAndDelete({ 'name': weatherDel.name }).then(respCond => {
                 if (respCond) {
-                    console.log("it's alraedy added")
                     Weather.find({}).then(response => {
                         res.status(208).json(response)
 
                     })
                 } else {
-
-                    exp = new Weather(weatherAdd)
-                    exp.save()
-                    console.log("city added")
 
                     Weather.find({}).then(response => {
                         res.status(201).json(response)

@@ -23,9 +23,40 @@
     </div>
 
     <div id="weathers"></div>
+    <div id="weathersMy"></div>
     <div id="weathersAdd"></div>
 
     <script id="weatherSearch-template" type="text/x-handlebars-template">
+
+        <div id="{{renderer.name}}" class="weather">
+            <div id="center">
+                <!-- <i class="fas fa-minus"></i> -->
+                <div class="fas fa-plus" onclick="createWeather({ 
+                    name: '{{renderer.name}}',
+                    temperature: '{{renderer.temperature}}',
+                    condition: '{{renderer.condition}}',
+                    conditionPic: '{{renderer.conditionPic}}'
+                })"></div>
+            </div>
+            <div class="row ">
+                <div id="center " class="text ">{{renderer.temperature}} </div>
+
+                <div id="center " class="text ">{{renderer.name}} </div>
+
+            </div>
+            <div class="row ">
+                <div class="row ">
+                    <img id="center " src='https://openweathermap.org/img/wn/{{renderer.conditionPic}}@2x.png' alt="icon of weather ">
+
+                    <p id="center " class="text ">{{renderer.condition}} </p>
+
+                </div>
+
+            </div>
+
+
+    </script>
+    <script id="weatherMy-template" type="text/x-handlebars-template">
 
         <div id="{{renderer.name}}" class="weather">
             <div id="center">
