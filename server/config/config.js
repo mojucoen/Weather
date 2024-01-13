@@ -1,6 +1,6 @@
 class config {
     constructor() {}
-    apiKey = ""
+    apiKey = "ee70fb6393c418884ecd26904146e00a"
     limit = 1
     tempUnit = "metric"
     apiCordinait = "http://api.openweathermap.org/geo/1.0/direct?"
