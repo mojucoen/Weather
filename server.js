@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 const mongoose = require('mongoose')
-mongoose.connect("mongodb://127.0.0.1:27017/weather").catch((err) => console.log(err))
+mongoose.connect("mongodb://149.106.159.183/32/weather").catch((err) => console.log(err))
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
